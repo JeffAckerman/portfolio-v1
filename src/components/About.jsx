@@ -4,10 +4,10 @@ import { certifications } from '../data.js'
 
 export default function About() {
   return (
-    <section className="section about" id="about">
+    <section className="section about" id="about" aria-labelledby="about-title">
       <Reveal>
         <p className="section-kicker mono">About</p>
-        <h2 className="section-title">
+        <h2 className="section-title" id="about-title">
           <WordReveal text="I don't just build AI features." />{' '}
           <em><WordReveal text="I build AI systems that work in production." startDelay={0.4} /></em>
         </h2>

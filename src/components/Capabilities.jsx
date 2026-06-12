@@ -39,10 +39,10 @@ const icons = {
 
 export default function Capabilities() {
   return (
-    <section className="section capabilities" id="capabilities">
+    <section className="section capabilities" id="capabilities" aria-labelledby="caps-title">
       <Reveal>
         <p className="section-kicker mono">What I Do</p>
-        <h2 className="section-title">
+        <h2 className="section-title" id="caps-title">
           <WordReveal text="Systems that ship, scale," />{' '}
           <em><WordReveal text="and stay maintainable." startDelay={0.32} /></em>
         </h2>

@@ -15,7 +15,9 @@ function Row({ items, reverse }) {
   return (
     <div className={`marquee-row${reverse ? ' is-reverse' : ''}`}>
       {doubled.map((name, i) => (
-        <span className="marquee-icon" key={name + i} data-tip={name} data-hover>
+        // Native title tooltip: a CSS tooltip would be clipped by the
+        // marquee's overflow/mask.
+        <span className="marquee-icon" key={name + i} title={name} data-hover>
           <TechIcon name={name} size={32} />
         </span>
       ))}

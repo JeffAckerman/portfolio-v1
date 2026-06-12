@@ -6,12 +6,10 @@ export default function Cursor() {
   const [active, setActive] = useState(false)
   const x = useMotionValue(-100)
   const y = useMotionValue(-100)
-  // Spring gives the lerp-style lag behind the real pointer.
-  const sx = useSpring(x, { stiffness: 400, damping: 32, mass: 0.5 })
-  const sy = useSpring(y, { stiffness: 400, damping: 32, mass: 0.5 })
-  // Slower spring ≈ the spec'd ~100ms trailing spotlight.
-  const lx = useSpring(x, { stiffness: 120, damping: 22, mass: 0.6 })
-  const ly = useSpring(y, { stiffness: 120, damping: 22, mass: 0.6 })
+  // Spotlight gets a short trailing lag; the dot itself tracks 1:1 —
+  // any spring on the dot reads as input latency.
+  const lx = useSpring(x, { stiffness: 260, damping: 30, mass: 0.4 })
+  const ly = useSpring(y, { stiffness: 260, damping: 30, mass: 0.4 })
 
   useEffect(() => {
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)')
@@ -23,7 +21,7 @@ export default function Cursor() {
       y.set(e.clientY)
       setActive(Boolean(e.target.closest('a, button, [data-hover]')))
     }
-    window.addEventListener('mousemove', move)
+    window.addEventListener('mousemove', move, { passive: true })
     return () => window.removeEventListener('mousemove', move)
   }, [x, y])
 
@@ -31,7 +29,7 @@ export default function Cursor() {
   return (
     <>
       <motion.div className="cursor-spotlight" style={{ x: lx, y: ly }} aria-hidden="true" />
-      <motion.div className="cursor" style={{ x: sx, y: sy }} aria-hidden="true">
+      <motion.div className="cursor" style={{ x, y }} aria-hidden="true">
         <span className={`cursor-dot${active ? ' is-active' : ''}`} />
       </motion.div>
     </>

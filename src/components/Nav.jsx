@@ -52,11 +52,11 @@ export default function Nav() {
         animate={{ y: hidden && !open ? '-100%' : '0%' }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <a href="#top" className="nav-logo" aria-label="Jeffrey William — home">
+        <a href="#top" className="nav-logo">
           <span className="logo-mark mono">J/W</span>
           <span className="logo-sub mono">jeffrey william · applied ai engineer</span>
         </a>
-        <nav className="nav-links" aria-label="Primary">
+        <nav className="nav-links" aria-label="Main navigation">
           {links.map(([label, href]) => (
             <a key={href} href={href} className={active === href ? 'is-active' : undefined}>
               {label}
@@ -66,7 +66,7 @@ export default function Nav() {
             GitHub ↗
           </a>
         </nav>
-        <a href="#contact" className="status-badge">
+        <a href="#contact" className="status-badge" aria-label="Open to Work — currently available">
           <span className="pulse-dot" aria-hidden="true" />
           Open to Work
         </a>

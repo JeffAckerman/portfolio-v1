@@ -1,6 +1,6 @@
 export const EMAIL = 'jeffrey.william.dev@gmail.com'
 export const LINKEDIN = 'https://linkedin.com/in/jeffrey-william-dev'
-export const GITHUB = 'https://github.com/jeffrey-william-dev'
+export const GITHUB = 'https://github.com/JeffAckerman'
 export const RESUME = '/Jeffrey-William-Resume.pdf'
 
 export const stats = [
@@ -216,7 +216,7 @@ export const journey = [
     year: '2026',
     role: 'Technical Lead',
     detail:
-      'Leading agentic AI delivery across enterprise clients. Databricks ML Professional certified. Anthropic Claude certified. Building the AI systems HackerRank would hire for.',
+      'Leading agentic AI delivery across enterprise clients — sprint planning, code reviews, and LLM benchmarking for cost, latency, and accuracy. Databricks ML Professional and Anthropic Claude certified.',
   },
 ]
 

@@ -1,14 +1,30 @@
+import { useRef, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import WordReveal from './WordReveal.jsx'
 import Magnetic from './Magnetic.jsx'
 import { EMAIL, LINKEDIN, GITHUB } from '../data.js'
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+  const timer = useRef(null)
+
+  // mailto still fires; the clipboard copy is the fallback for users
+  // without a configured mail client.
+  function onEmailClick() {
+    try {
+      navigator.clipboard?.writeText(EMAIL).then(() => {
+        setCopied(true)
+        clearTimeout(timer.current)
+        timer.current = setTimeout(() => setCopied(false), 2000)
+      })
+    } catch {}
+  }
+
   return (
-    <section className="section contact" id="contact">
+    <section className="section contact" id="contact" aria-labelledby="contact-title">
       <Reveal>
         <p className="section-kicker mono">Contact</p>
-        <h2 className="contact-headline">
+        <h2 className="contact-headline" id="contact-title">
           <WordReveal text="Let's build something" />{' '}
           <em className="gradient-text"><WordReveal text="that ships." startDelay={0.24} /></em>
         </h2>
@@ -20,9 +36,16 @@ export default function Contact() {
       <Reveal delay={0.1}>
         <div className="contact-actions">
           <Magnetic>
-            <a className="btn btn-primary" href={`mailto:${EMAIL}`}>
-              {EMAIL}
-            </a>
+            <span className="resume-wrap">
+              <a className="btn btn-primary" href={`mailto:${EMAIL}`} onClick={onEmailClick}>
+                {EMAIL}
+              </a>
+              {copied && (
+                <span className="action-tip mono" role="status">
+                  Email copied!
+                </span>
+              )}
+            </span>
           </Magnetic>
           <Magnetic>
             <a className="btn btn-ghost" href={LINKEDIN} target="_blank" rel="noreferrer">

@@ -10,10 +10,10 @@ export default function Work() {
   const shown = projects.filter((p) => filter === 'all' || p.cats.includes(filter))
 
   return (
-    <section className="section work" id="work">
+    <section className="section work" id="work" aria-labelledby="work-title">
       <Reveal>
         <p className="section-kicker mono">Selected Work</p>
-        <h2 className="section-title">
+        <h2 className="section-title" id="work-title">
           <WordReveal text="Real systems. Real clients." />{' '}
           <em><WordReveal text="In production." startDelay={0.32} /></em>
         </h2>
@@ -41,7 +41,7 @@ export default function Work() {
       >
         {shown.map((p, i) => (
           <div className="work-sticky" key={p.num} style={{ '--i': i }}>
-            <article className="project-card" data-hover tabIndex="0">
+            <article className="project-card" data-hover>
               <header className="project-head">
                 <span className="project-num mono">{p.num}</span>
                 <div>

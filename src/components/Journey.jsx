@@ -10,10 +10,10 @@ export default function Journey() {
   const reduce = useReducedMotion()
 
   return (
-    <section className="section journey" id="journey">
+    <section className="section journey" id="journey" aria-labelledby="journey-title">
       <Reveal>
         <p className="section-kicker mono">Journey</p>
-        <h2 className="section-title">
+        <h2 className="section-title" id="journey-title">
           <WordReveal text="3 years. Mobile to AI." />{' '}
           <em className="gradient-text"><WordReveal text="Always shipping." startDelay={0.32} /></em>
         </h2>
@@ -27,7 +27,7 @@ export default function Journey() {
           <line x1="0" y1="1" x2="100" y2="1" pathLength="1" vectorEffect="non-scaling-stroke" />
         </svg>
         {journey.map((m, i) => (
-          <article
+          <div
             className="tl-card"
             role="listitem"
             key={m.year}
@@ -38,7 +38,7 @@ export default function Journey() {
             <span className="tl-year mono">{m.year}</span>
             <h3>{m.role}</h3>
             <p>{m.detail}</p>
-          </article>
+          </div>
         ))}
       </div>
     </section>

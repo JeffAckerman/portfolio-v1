@@ -5,7 +5,7 @@ import { stats } from '../data.js'
 
 function CountUp({ value, suffix }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const inView = useInView(ref, { once: true, amount: 0.2 })
   const reduce = useReducedMotion()
   const [display, setDisplay] = useState(reduce ? value : 0)
   const [done, setDone] = useState(Boolean(reduce))
@@ -14,9 +14,8 @@ function CountUp({ value, suffix }) {
   useEffect(() => {
     if (!inView || reduce) return
     const controls = animate(0, value, {
-      duration: 1.6,
-      // ease-out cubic: fast start, slow landing
-      ease: [0.33, 1, 0.68, 1],
+      duration: 1.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
       onUpdate: (v) => setDisplay(Math.round(v)),
       onComplete: () => setDone(true),
     })
@@ -53,7 +52,8 @@ function CountUp({ value, suffix }) {
   )
 }
 
-const platforms = ['App Store', 'Google Play', 'AWS', 'Databricks', 'Anthropic']
+const live = ['App Store', 'Google Play', 'AWS', 'Databricks']
+const certified = ['Databricks ML Professional', 'Anthropic Claude']
 
 export default function Stats() {
   return (
@@ -67,9 +67,16 @@ export default function Stats() {
         ))}
       </div>
       <Reveal>
-        <div className="cred-strip mono" aria-label="Platforms shipped to">
-          <span className="cred-label">Shipped to</span>
-          {platforms.map((p) => (
+        <div className="cred-strip mono" aria-label="Production platforms and certifications">
+          <span className="cred-label">Live on</span>
+          {live.map((p) => (
+            <span className="cred-badge" key={p}>
+              {p}
+            </span>
+          ))}
+          <span className="cred-divider" aria-hidden="true" />
+          <span className="cred-label">Certified</span>
+          {certified.map((p) => (
             <span className="cred-badge" key={p}>
               {p}
             </span>

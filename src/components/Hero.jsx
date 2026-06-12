@@ -9,11 +9,13 @@ import {
 import ParticleField from './ParticleField.jsx'
 import Magnetic from './Magnetic.jsx'
 
+// The last line carries the gradient accent.
 const HEADLINE = [
-  ['I', 'build', 'AI', 'systems'],
-  ['that', 'solve', 'real'],
-  ['business', 'problems.'],
+  ['I', 'ship', 'AI', 'agents'],
+  ['that', 'enterprises'],
+  ['run', 'in', 'production.'],
 ]
+const ACCENT_LINE = 2
 
 const ROLES = [
   'Applied AI Engineer',
@@ -34,11 +36,11 @@ const ORBS = [
 ]
 
 const word = {
-  hidden: { y: '110%', opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   show: (i) => ({
-    y: '0%',
+    y: 0,
     opacity: 1,
-    transition: { duration: 0.7, delay: 0.25 + i * 0.07, ease: [0.21, 0.65, 0.32, 1] },
+    transition: { duration: 0.4, delay: 0.2 + i * 0.08, ease: 'easeOut' },
   }),
 }
 
@@ -72,12 +74,17 @@ function RoleCycler() {
 }
 
 export default function Hero() {
+  const [resumeTip, setResumeTip] = useState(false)
   const reduce = useReducedMotion()
-  // Scroll-linked parallax (framer drives these on requestAnimationFrame)
+  // Scroll-linked parallax (framer drives these on requestAnimationFrame).
+  // Multipliers kept ≤0.05 so the hero never fights natural scroll speed.
   const { scrollY } = useScroll()
-  const yHeadline = useTransform(scrollY, (v) => (reduce ? 0 : v * 0.3))
-  const ySub = useTransform(scrollY, (v) => (reduce ? 0 : v * 0.15))
-  const fade = useTransform(scrollY, [0, 400], reduce ? [1, 1] : [1, 0])
+  const yHeadline = useTransform(scrollY, (v) => (reduce ? 0 : v * 0.05))
+  const ySub = useTransform(scrollY, (v) => (reduce ? 0 : v * 0.03))
+  // Fade only once the hero is mostly off-screen — text must stay readable
+  // while it still fills the viewport.
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 800
+  const fade = useTransform(scrollY, [vh * 0.55, vh], reduce ? [1, 1] : [1, 0])
 
   let i = 0
   return (
@@ -119,7 +126,7 @@ export default function Hero() {
             <span className="hero-line" key={li}>
               {line.map((w) => {
                 const idx = i++
-                const accent = w === 'business' || w === 'problems.'
+                const accent = li === ACCENT_LINE
                 if (reduce) {
                   return (
                     <span className="hero-mask" key={w + idx}>
@@ -152,8 +159,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
           >
-            Applied AI Engineer · 3 years shipping production agentic systems, RAG
-            pipelines, and enterprise AI platforms at AVASOFT.
+            Applied AI Engineer at AVASOFT — multi-agent systems with
+            human-in-the-loop control, RAG over live enterprise data, and
+            Flutter apps with 100K+ downloads on both stores.
           </motion.p>
           <motion.div
             className="avail-badge"
@@ -178,24 +186,43 @@ export default function Hero() {
               </a>
             </Magnetic>
             <Magnetic>
-              {/* TODO: replace "#" with the final hosted resume PDF link */}
-              <a className="btn btn-ghost" href="#">
-                Download Resume
-              </a>
+              {/* TODO: replace with the final hosted resume PDF link */}
+              <span className="resume-wrap">
+                <a
+                  className="btn btn-ghost"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    console.warn('TODO: Link resume PDF here')
+                    setResumeTip(true)
+                    clearTimeout(window.__resumeTipTimer)
+                    window.__resumeTipTimer = setTimeout(() => setResumeTip(false), 3000)
+                  }}
+                >
+                  Download Resume
+                </a>
+                {resumeTip && (
+                  <span className="action-tip mono" role="status">
+                    Resume coming soon — contact me directly
+                  </span>
+                )}
+              </span>
             </Magnetic>
           </motion.div>
         </motion.div>
       </motion.div>
-      <motion.a
-        href="#stats"
-        className="scroll-cue"
-        aria-label="Scroll to content"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <span className="scroll-cue-line" />
-      </motion.a>
+      <motion.div className="scroll-cue-wrap" style={{ opacity: fade }}>
+        <motion.a
+          href="#stats"
+          className="scroll-cue"
+          aria-label="Scroll to content"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+        >
+          <span className="scroll-cue-line" />
+        </motion.a>
+      </motion.div>
     </section>
   )
 }
