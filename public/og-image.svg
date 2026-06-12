@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#06060a"/>
+  <g stroke="#15151f" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/><line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="472" x2="1200" y2="472"/>
+    <line x1="300" y1="0" x2="300" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  <circle cx="92" cy="208" r="6" fill="#00e5cc"/>
+  <text x="112" y="216" font-family="JetBrains Mono, monospace" font-size="22" fill="#8b8b99" letter-spacing="4">JEFFREY WILLIAM</text>
+  <text x="88" y="320" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#f4f4f6">I build AI systems that solve</text>
+  <text x="88" y="408" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#f4f4f6">real <tspan fill="#00e5cc">business problems</tspan>.</text>
+  <text x="88" y="500" font-family="JetBrains Mono, monospace" font-size="22" fill="#8b8b99">Applied AI Engineer · Agentic Systems · RAG Pipelines · AVASOFT</text>
+</svg>

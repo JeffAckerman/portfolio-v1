@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"vite preview\")",
+      "Bash(npm run *)",
+      "Bash(node scripts/shoot.mjs)"
+    ]
+  }
+}
