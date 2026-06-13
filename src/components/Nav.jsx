@@ -52,8 +52,11 @@ export default function Nav() {
         animate={{ y: hidden && !open ? '-100%' : '0%' }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <a href="#top" className="nav-logo">
-          <span className="logo-mark mono">J/W</span>
+        <a href="#top" className="nav-logo" aria-label="Jeffrey William — home">
+          <svg className="logo-svg" viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+            <path d="M18 20 L34 32 L18 44" stroke="var(--accent)" strokeWidth="5.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+            <rect x="38" y="39" width="12" height="6" rx="2" fill="var(--accent-secondary)"/>
+          </svg>
           <span className="logo-sub mono">jeffrey william · applied ai engineer</span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">

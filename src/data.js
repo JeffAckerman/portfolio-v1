@@ -46,7 +46,7 @@ export const projects = [
     problem: 'Enterprise teams wasted hours routing internal HR, Finance, and IT requests manually.',
     solution:
       'Built a central AI orchestrator coordinating three specialized agents — HR, Finance, and IT — with Human-in-the-Loop approval pipelines for controlled, auditable decision-making. OpenTelemetry traces every agent interaction in real time, so debugging a multi-agent flow takes minutes, not days.',
-    outcome: 'Fully automated internal request handling with zero uncontrolled AI actions in production.',
+    outcome: 'Eliminated manual routing for HR, Finance, and IT requests — every AI decision auditable, observable via OpenTelemetry, and gated by human approval before execution.',
     stack: ['LangChain', 'LangGraph', 'Claude', 'OpenTelemetry', 'Python'],
     visual: 'orchestrator',
     cats: ['ai'],
@@ -58,7 +58,7 @@ export const projects = [
     problem: 'Financial services users needed contextual, real-time AI insights from live data — not static documents.',
     solution:
       'Engineered a RAG pipeline querying directly from live database state, backed by a high-throughput GO backend with 90+ endpoints. Shipped the Flutter app to both App Store and Google Play with Siri integration, In-App Purchases, and FreeRASP runtime protection.',
-    outcome: 'Live production app with zero PEN-test vulnerabilities and real-time AI financial insights.',
+    outcome: 'Live on App Store and Google Play with 100K+ downloads — zero PEN-test vulnerabilities, Siri integration, In-App Purchases, and real-time RAG-powered financial insights delivered to users.',
     stack: ['RAG', 'GO', 'Flutter', 'Firebase', 'FreeRASP'],
     visual: 'finance',
     cats: ['ai', 'mobile'],
@@ -70,7 +70,7 @@ export const projects = [
     problem: 'Enterprises spent weeks manually building domain-specific chatbots for each use case.',
     solution:
       'Architected an auto-generation platform that ingests a knowledge base and target webpage, then deploys a production-ready, domain-specific chatbot using RAG and AWS Bedrock — with security controls, access management, and compliance safeguards built in for sensitive organizational data.',
-    outcome: 'Eliminated manual bot development overhead, enabling rapid chatbot rollout at enterprise scale.',
+    outcome: 'Turned weeks of manual bot development into a single knowledge-base ingestion — production-ready, security-validated chatbots deployed on AWS Bedrock without writing domain logic.',
     stack: ['RAG', 'AWS Bedrock', 'Python', 'Enterprise Security'],
     visual: 'pipeline',
     cats: ['ai'],
@@ -82,7 +82,7 @@ export const projects = [
     problem: 'Financial analysts needed to query, calculate, and visualize complex financial data through natural language — across multiple document types.',
     solution:
       'Built an agentic Q&A layer with a RAG chatbot, dynamic graph generation, and an insurance document comparison tool producing consolidated summary reports — alongside robust document management workflows for upload, retrieval, and deletion.',
-    outcome: 'Analysts query, calculate, and visualize financial data in plain language — delivered across three production phases.',
+    outcome: 'Replaced manual financial analysis workflows across three production phases — analysts now query live data, generate charts, and compare insurance documents in plain language with zero SQL.',
     stack: ['Python', 'MongoDB', 'PostgreSQL', 'Agentic AI'],
     visual: 'charts',
     cats: ['ai'],
@@ -94,7 +94,7 @@ export const projects = [
     problem: 'An enterprise needed ML model delivery at scale — high concurrency, low latency, no compromises.',
     solution:
       'Designed the backend on Databricks Serving Endpoints with the frontend on Databricks Apps, then delivered a GO-based release with significantly improved throughput. Load tested to validate enterprise-scale concurrency standards.',
-    outcome: 'Enterprise-scale concurrency validated under load, with low-latency responses across all endpoints.',
+    outcome: 'GO-rewritten backend on Databricks Serving Endpoints survived enterprise load testing — validated for high-concurrency ML delivery with significantly improved throughput over the prior implementation.',
     stack: ['Databricks', 'GO', 'Serving Endpoints', 'SQL Warehouse'],
     visual: 'layers',
     cats: ['data'],
@@ -106,7 +106,7 @@ export const projects = [
     problem: 'A live mobile product needed continuous delivery across iOS and Android through a major platform migration — without disrupting users.',
     solution:
       'Shipped 12 consecutive App Store release cycles maintaining version stability, and drove Android releases through an active Swift-to-Kotlin Multiplatform migration — coordinating with backend and QA teams to guarantee full feature parity across both platforms.',
-    outcome: '12 consecutive stable releases and a completed KMP migration with zero feature regressions.',
+    outcome: '12 consecutive App Store releases shipped on schedule — full Swift-to-Kotlin Multiplatform migration completed with zero feature regressions across iOS and Android.',
     stack: ['Flutter', 'Kotlin', 'KMP', 'Swift', 'Firebase'],
     visual: 'releases',
     cats: ['mobile'],
@@ -166,6 +166,7 @@ export const techGroups = [
       ['Serving Endpoints', 'ML model delivery at scale'],
       ['SQL Warehouse', 'Large-scale data processing'],
       ['PostgreSQL', 'Primary relational store'],
+      ['pgvector', 'Vector search for RAG retrieval'],
       ['MongoDB', 'Document store for AI platforms'],
       ['Redis', 'Caching & session state'],
       ['AWS Connect', 'Voice automation pipelines'],
@@ -216,7 +217,7 @@ export const journey = [
     year: '2026',
     role: 'Technical Lead',
     detail:
-      'Leading agentic AI delivery across enterprise clients — sprint planning, code reviews, and LLM benchmarking for cost, latency, and accuracy. Databricks ML Professional and Anthropic Claude certified.',
+      'Technical Lead on agentic AI delivery — owning sprint planning, architecture decisions, code reviews, and LLM benchmarking for cost, latency, and accuracy. Mentoring junior engineers on clean architecture and AI integration patterns. Databricks ML Professional and 3× Anthropic Claude certified.',
   },
 ]
 

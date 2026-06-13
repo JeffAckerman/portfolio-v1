@@ -28,7 +28,9 @@ Applied AI Engineer
 
 $ timeline
 2023 ── Mobile Developer
-2025 ── AI Engineer + Tech Lead
+2024 ── Software Engineer (100K+ downloads)
+2025 ── AI Engineer & Backend
+2026 ── Technical Lead
 
 $ location
 Chennai, IN · open to remote

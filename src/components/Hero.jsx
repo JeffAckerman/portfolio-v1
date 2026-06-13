@@ -8,6 +8,7 @@ import {
 } from 'framer-motion'
 import ParticleField from './ParticleField.jsx'
 import Magnetic from './Magnetic.jsx'
+import { RESUME } from '../data.js'
 
 // The last line carries the gradient accent.
 const HEADLINE = [
@@ -74,7 +75,6 @@ function RoleCycler() {
 }
 
 export default function Hero() {
-  const [resumeTip, setResumeTip] = useState(false)
   const reduce = useReducedMotion()
   // Scroll-linked parallax (framer drives these on requestAnimationFrame).
   // Multipliers kept ≤0.05 so the hero never fights natural scroll speed.
@@ -186,27 +186,9 @@ export default function Hero() {
               </a>
             </Magnetic>
             <Magnetic>
-              {/* TODO: replace with the final hosted resume PDF link */}
-              <span className="resume-wrap">
-                <a
-                  className="btn btn-ghost"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    console.warn('TODO: Link resume PDF here')
-                    setResumeTip(true)
-                    clearTimeout(window.__resumeTipTimer)
-                    window.__resumeTipTimer = setTimeout(() => setResumeTip(false), 3000)
-                  }}
-                >
-                  Download Resume
-                </a>
-                {resumeTip && (
-                  <span className="action-tip mono" role="status">
-                    Resume coming soon — contact me directly
-                  </span>
-                )}
-              </span>
+              <a className="btn btn-ghost" href={RESUME} download="Jeffrey-William-Resume.pdf">
+                Download Resume
+              </a>
             </Magnetic>
           </motion.div>
         </motion.div>

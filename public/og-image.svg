@@ -4,7 +4,10 @@
     <line x1="0" y1="157" x2="1200" y2="157"/><line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="472" x2="1200" y2="472"/>
     <line x1="300" y1="0" x2="300" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
   </g>
-  <circle cx="92" cy="208" r="6" fill="#00c4b0"/>
+  <g transform="translate(80, 188) scale(0.56)">
+    <path d="M18 20 L34 32 L18 44" stroke="#00c4b0" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="39" width="12" height="6" rx="2" fill="#7c3aed"/>
+  </g>
   <text x="112" y="216" font-family="JetBrains Mono, monospace" font-size="22" fill="#8b8b99" letter-spacing="4">JEFFREY WILLIAM</text>
   <text x="88" y="320" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#f4f4f6">I ship AI agents that</text>
   <text x="88" y="408" font-family="Georgia, serif" font-weight="700" font-size="72" fill="#f4f4f6">enterprises <tspan fill="#00c4b0">run in production.</tspan></text>
