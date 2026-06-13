@@ -51,18 +51,7 @@ export default function Work() {
               </header>
               <div className="project-grid">
                 <div className="project-copy">
-                  <p className="project-problem">
-                    <span className="label mono">Problem</span>
-                    {p.problem}
-                  </p>
-                  <p className="project-solution">
-                    <span className="label mono">Solution</span>
-                    {p.solution}
-                  </p>
-                  <p className="project-outcome">
-                    <span className="label mono">Outcome</span>
-                    {p.outcome}
-                  </p>
+                  <p className="project-body">{p.body}</p>
                   <div className="tag-row mono">
                     {p.stack.map((t) => (
                       <span key={t}>{t}</span>

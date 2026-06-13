@@ -20,16 +20,6 @@ const items = [
     ),
   },
   {
-    id: 'skills',
-    label: 'Skills',
-    icon: (
-      <g {...stroke}>
-        <path d="M12 3l9 5-9 5-9-5z" />
-        <path d="M3 13l9 5 9-5" />
-      </g>
-    ),
-  },
-  {
     id: 'about',
     label: 'About',
     icon: (

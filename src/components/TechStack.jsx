@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Reveal from './Reveal.jsx'
-import WordReveal from './WordReveal.jsx'
 import TechIcon from './icons.jsx'
 import { techGroups } from '../data.js'
 
@@ -73,12 +72,9 @@ function SkillCard({ name, tip, group, index }) {
 
 export default function TechStack() {
   return (
-    <section className="section tech" id="skills" aria-labelledby="skills-title">
+    <section className="section tech" id="skills" aria-label="Tech Stack">
       <Reveal>
         <p className="section-kicker mono">Tech Stack</p>
-        <h2 className="section-title" id="skills-title">
-          <WordReveal text="The toolbox," /> <em><WordReveal text="organized by what it's for." startDelay={0.16} /></em>
-        </h2>
       </Reveal>
       <div className="tech-groups">
         {techGroups.map((g) => (

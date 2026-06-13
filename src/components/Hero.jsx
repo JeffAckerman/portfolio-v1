@@ -193,18 +193,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </motion.div>
-      <motion.div className="scroll-cue-wrap" style={{ opacity: fade }}>
-        <motion.a
-          href="#stats"
-          className="scroll-cue"
-          aria-label="Scroll to content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <span className="scroll-cue-line" />
-        </motion.a>
-      </motion.div>
     </section>
   )
 }

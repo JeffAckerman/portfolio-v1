@@ -4,7 +4,6 @@ import { GITHUB } from '../data.js'
 
 const links = [
   ['Work', '#work'],
-  ['Skills', '#skills'],
   ['About', '#about'],
   ['Contact', '#contact'],
 ]

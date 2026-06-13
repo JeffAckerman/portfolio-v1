@@ -59,7 +59,6 @@ export default function Capabilities() {
               </div>
               <div className="cap-body">
                 <h3>{c.title}</h3>
-                <p>{c.body}</p>
                 <div className="tag-row mono" aria-label="Technologies">
                   {c.stack.map((t) => (
                     <span key={t}>{t}</span>
