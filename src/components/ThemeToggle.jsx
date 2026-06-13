@@ -15,7 +15,7 @@ const moon = (
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(() =>
-    document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light',
   )
 
   useEffect(() => {

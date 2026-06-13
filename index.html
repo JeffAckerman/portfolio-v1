@@ -15,15 +15,18 @@
       content="3 years shipping production AI systems. LangGraph, RAG, AWS Bedrock, Databricks. Open to work."
     />
     <meta property="og:image" content="/og-image.svg" />
-    <meta name="theme-color" content="#06060a" />
+    <meta name="theme-color" content="#f5f3ef" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script>
-      // Apply saved theme before first paint to avoid a flash of the wrong mode.
+      // Default is light; only switch to dark if the user explicitly chose it.
       ;(function () {
         try {
-          if (localStorage.getItem('theme') === 'light')
-            document.documentElement.setAttribute('data-theme', 'light')
-        } catch (e) {}
+          var saved = localStorage.getItem('theme')
+          if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark')
+          else document.documentElement.setAttribute('data-theme', 'light')
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
       })()
     </script>
     <!-- TODO (low): self-host Clash Display/Satoshi/JetBrains Mono as woff2 and
